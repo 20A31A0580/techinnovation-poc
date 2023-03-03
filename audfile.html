@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.7.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script>
+    <link rel="manifest" href="./manifest.json">
+    
+  </head>
+  <body>
+    
+   
+    <audio id="myAudio" controls>
+ 
+      <source src="heart.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio><br>
+        <br/><br/> 
+        <div id="console"></div>
+        <script>
+function speak (message) {
+  var msg = new SpeechSynthesisUtterance(message);
+  var voices = window.speechSynthesis.getVoices()
+  msg.voice = voices[4]
+  
+  window.speechSynthesis.speak(msg)
+}
+var aud = document.getElementById("myAudio");
+aud.onended = function() {
+speak("lets go and try some questions , you are navigated to quiz module , about which of the following topics we have dicussed  ? option one supply and demand , option two income tax ,option three simple intrest , option four compound intrest , say the correct option ");
+    window.location.href = "quiz1.html";
+};
+        </script>
+        <script src="audfile1.js"></script>
+        
+  </body>
+</html>
